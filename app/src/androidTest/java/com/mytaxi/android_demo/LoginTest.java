@@ -74,7 +74,7 @@ public class LoginTest {
 
     @Test
     //Test case to check if application is successfully logged in and user is able to search driver
-    //and make a call
+    //and make a call.
     public void MyTaxi_Demo_Test(){
         Log.e("@Test_logs","Performing login to MyTaxi test");
         //find username field and enter username
