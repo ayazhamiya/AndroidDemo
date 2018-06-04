@@ -1,6 +1,7 @@
 package com.mytaxi.android_demo;
 
 import android.content.Context;
+import android.os.SystemClock;
 import android.support.test.espresso.Espresso;
 import android.support.test.espresso.IdlingResource;
 import android.support.test.espresso.action.ViewActions;
@@ -108,11 +109,9 @@ public class LoginTest {
         //type in search box to get drivers
         onView(withId(R.id.textSearch))
              .perform(ViewActions.typeText(search_string));
-
-
+        SystemClock.sleep(2000);
 
         Log.e("@Test_logs","Search string entered");
-
         //select the desired driver from Recycler View
         onView(withText(req_driver))
              .inRoot(withDecorView(not(is(mActivity.getWindow().getDecorView()))))
