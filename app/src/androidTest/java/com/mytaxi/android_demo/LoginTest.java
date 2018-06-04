@@ -99,18 +99,20 @@ public class LoginTest {
                 .check(matches(isDisplayed()));
         Log.e("@Test_logs","login assertion successful");
 
-        //type in search box to get drivers
-        onView(withId(R.id.textSearch))
-             .perform(ViewActions.typeText(search_string));
-
+        //register driver search idling resource
         // creating instance for main activity
         mainActivity = MainActivity.getInstance();
         //idling resource for driver search
         driverSearchIdlingResource = mainActivity.getIdlingResourceForMainActivity();
+        Espresso.registerIdlingResources(driverSearchIdlingResource);
+        //type in search box to get drivers
+        onView(withId(R.id.textSearch))
+             .perform(ViewActions.typeText(search_string));
+
+
 
         Log.e("@Test_logs","Search string entered");
-        //register driver search idling resource
-        Espresso.registerIdlingResources(driverSearchIdlingResource);
+
         //select the desired driver from Recycler View
         onView(withText(req_driver))
              .inRoot(withDecorView(not(is(mActivity.getWindow().getDecorView()))))

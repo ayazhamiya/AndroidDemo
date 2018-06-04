@@ -48,7 +48,7 @@ import static com.mytaxi.android_demo.utils.PermissionHelper.PERMISSIONS_REQUEST
 public class MainActivity extends AuthenticatedActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
 
-    CountingIdlingResource idlingResource = new CountingIdlingResource("driver_loader");
+    CountingIdlingResource idlingResource;
     private static final String KEY_LOCATION = "location";
 
     @Inject
@@ -87,6 +87,8 @@ static MainActivity activityInstance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        idlingResource = new CountingIdlingResource("driver_loader");
 
         Log.i("az", "I am in onCreate of Main Act");
         loadInstanceState(savedInstanceState);
