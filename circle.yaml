@@ -6,9 +6,8 @@ machine:
     GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
 
 dependencies:
-  override:
-     - chmod +x gradlew  
   pre:
+    - chmod +x gradlew
     - wget "https://services.gradle.org/distributions/gradle-2.9-bin.zip"; unzip gradle-2.9-bin.zip
     - echo y | android update sdk --no-ui --all --filter tool,extra-android-m2repository,extra-android-support,extra-google-google_play_services,extra-google-m2repository,android-23
     - echo y | android update sdk --no-ui --all --filter build-tools-23.0.2
